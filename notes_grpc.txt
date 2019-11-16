@@ -1,0 +1,5 @@
+To build python service definition files:
+python3 -m grpc_tools.protoc -I./ --python_out=. --grpc_python_out=. tick_eval.proto
+
+Note: previously had a 'protos' folder and
+python3 -m grpc_tools.protoc -I./protos --python_out=. --grpc_python_out=. tick_eval.proto

@@ -1,0 +1,35 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.tickeval";
+option java_outer_classname = "TickEvalProto";
+option objc_class_prefix = "TEV";
+
+package tickeval;
+
+// Interface exported by the server.
+service TickEval {
+  // A simple RPC.
+  //
+  // Evaluates a single tradestation tick (or bar)
+  // and returns an order type if position needs to be adjusted
+  rpc EvalSingle(BarPos) returns (OrderResponse) {}
+}
+
+/// Fields that TradeStation sends representing a bar and ALSO details of the current position
+message BarPos {
+  double lastDT     = 1;
+  float  lastOpen   = 2;
+  float  lastHigh   = 3;
+  float  lastLow    = 4;
+  float  lastClose  = 5;
+  float  lastVolume = 6;
+  sint32 posSize    = 7;
+  string extraField = 8;
+}
+
+/// OrderType is the server response - a string with the order type to place
+message OrderResponse {
+  string OrderType = 1;
+}
