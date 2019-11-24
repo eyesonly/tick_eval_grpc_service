@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='tickeval',
   syntax='proto3',
   serialized_options=_b('\n\031io.grpc.examples.tickevalB\rTickEvalProtoP\001\242\002\003TEV'),
-  serialized_pb=_b('\n\x0ftick_eval.proto\x12\x08tickeval\"\x99\x01\n\x06\x42\x61rPos\x12\x0e\n\x06lastDT\x18\x01 \x01(\x01\x12\x10\n\x08lastOpen\x18\x02 \x01(\x02\x12\x10\n\x08lastHigh\x18\x03 \x01(\x02\x12\x0f\n\x07lastLow\x18\x04 \x01(\x02\x12\x11\n\tlastClose\x18\x05 \x01(\x02\x12\x12\n\nlastVolume\x18\x06 \x01(\x02\x12\x0f\n\x07posSize\x18\x07 \x01(\x11\x12\x12\n\nextraField\x18\x08 \x01(\t\"\"\n\rOrderResponse\x12\x11\n\tOrderType\x18\x01 \x01(\t2E\n\x08TickEval\x12\x39\n\nEvalSingle\x12\x10.tickeval.BarPos\x1a\x17.tickeval.OrderResponse\"\x00\x42\x32\n\x19io.grpc.examples.tickevalB\rTickEvalProtoP\x01\xa2\x02\x03TEVb\x06proto3')
+  serialized_pb=_b('\n\x0ftick_eval.proto\x12\x08tickeval\"\xbe\x01\n\x06\x42\x61rPos\x12\x0e\n\x06lastDT\x18\x01 \x01(\x01\x12\x10\n\x08lastOpen\x18\x02 \x01(\x01\x12\x10\n\x08lastHigh\x18\x03 \x01(\x01\x12\x0f\n\x07lastLow\x18\x04 \x01(\x01\x12\x11\n\tlastClose\x18\x05 \x01(\x01\x12\x12\n\nlastVolume\x18\x06 \x01(\x01\x12\x0f\n\x07posSize\x18\x07 \x01(\x11\x12\x12\n\nentryPrice\x18\x08 \x01(\x01\x12\x0f\n\x07openPnL\x18\t \x01(\x01\x12\x12\n\nextraField\x18\n \x01(\t\"\"\n\rOrderResponse\x12\x11\n\tOrderType\x18\x01 \x01(\t2E\n\x08TickEval\x12\x39\n\nEvalSingle\x12\x10.tickeval.BarPos\x1a\x17.tickeval.OrderResponse\"\x00\x42\x32\n\x19io.grpc.examples.tickevalB\rTickEvalProtoP\x01\xa2\x02\x03TEVb\x06proto3')
 )
 
 
@@ -41,35 +41,35 @@ _BARPOS = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='lastOpen', full_name='tickeval.BarPos.lastOpen', index=1,
-      number=2, type=2, cpp_type=6, label=1,
+      number=2, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='lastHigh', full_name='tickeval.BarPos.lastHigh', index=2,
-      number=3, type=2, cpp_type=6, label=1,
+      number=3, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='lastLow', full_name='tickeval.BarPos.lastLow', index=3,
-      number=4, type=2, cpp_type=6, label=1,
+      number=4, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='lastClose', full_name='tickeval.BarPos.lastClose', index=4,
-      number=5, type=2, cpp_type=6, label=1,
+      number=5, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='lastVolume', full_name='tickeval.BarPos.lastVolume', index=5,
-      number=6, type=2, cpp_type=6, label=1,
+      number=6, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -82,8 +82,22 @@ _BARPOS = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='extraField', full_name='tickeval.BarPos.extraField', index=7,
-      number=8, type=9, cpp_type=9, label=1,
+      name='entryPrice', full_name='tickeval.BarPos.entryPrice', index=7,
+      number=8, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='openPnL', full_name='tickeval.BarPos.openPnL', index=8,
+      number=9, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='extraField', full_name='tickeval.BarPos.extraField', index=9,
+      number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -101,7 +115,7 @@ _BARPOS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=30,
-  serialized_end=183,
+  serialized_end=220,
 )
 
 
@@ -131,8 +145,8 @@ _ORDERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=185,
-  serialized_end=219,
+  serialized_start=222,
+  serialized_end=256,
 )
 
 DESCRIPTOR.message_types_by_name['BarPos'] = _BARPOS
@@ -162,8 +176,8 @@ _TICKEVAL = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=221,
-  serialized_end=290,
+  serialized_start=258,
+  serialized_end=327,
   methods=[
   _descriptor.MethodDescriptor(
     name='EvalSingle',

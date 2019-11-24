@@ -20,13 +20,15 @@ service TickEval {
 /// Fields that TradeStation sends representing a bar and ALSO details of the current position
 message BarPos {
   double lastDT     = 1;
-  float  lastOpen   = 2;
-  float  lastHigh   = 3;
-  float  lastLow    = 4;
-  float  lastClose  = 5;
-  float  lastVolume = 6;
+  double lastOpen   = 2;
+  double lastHigh   = 3;
+  double lastLow    = 4;
+  double lastClose  = 5;
+  double lastVolume = 6;
   sint32 posSize    = 7;
-  string extraField = 8;
+  double entryPrice = 8;
+  double openPnL    = 9;
+  string extraField = 10;
 }
 
 /// OrderType is the server response - a string with the order type to place

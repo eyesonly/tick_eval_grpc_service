@@ -17,7 +17,7 @@ def run():
     # with grpc.insecure_channel('10.12.78.137:50051') as channel:
     with grpc.insecure_channel('192.168.1.231:50051') as channel:
         stub = tick_eval_pb2_grpc.TickEvalStub(channel)
-        barpos = tick_eval_pb2.BarPos(lastDT=21.123456, \
+        barpos = tick_eval_pb2.BarPos(lastDT=43123.000000, \
                                       lastOpen=51, \
                                       lastHigh=52, \
                                       lastLow=51, \

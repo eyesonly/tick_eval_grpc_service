@@ -23,15 +23,33 @@ class TickEval(tick_eval_pb2_grpc.TickEvalServicer):
     def EvalSingle(self, request, context):
 
         # pdb.set_trace()
-        
+        exceldt = request.lastDT
+        message_back = ""
+        if exceldt  == 43610:
+           message_back = "buy"
+        if exceldt == 43473 or exceldt == 43734:
+           message_back = "sell"
+        if exceldt == 43473:
+            message_back = "sellShort"
+        if exceldt == 43729:
+            message_back = "buyToCover"
+
+        if request.posSize is not None:
+            pos_size = request.posSize
+        else:
+            pos_size = 0
+
         print(str(request.lastDT) + ';' + \
               str(request.lastOpen) + ';' + \
               str(request.lastHigh) + ';' + \
               str(request.lastLow) + ';' + \
               str(request.lastClose) + ';' + \
               str(request.lastVolume) + ';' + \
-              str(request.posSize))
-        message_back = "buyToCover"
+              str(pos_size) + ';' + \
+              str(request.entryPrice) + ';' + \
+              str(request.openPnL))
+        # print(request.extraField)
+        
         return tick_eval_pb2.OrderResponse(OrderType=message_back)
 
 
