@@ -19,6 +19,11 @@ class TickEvalStub(object):
         request_serializer=tick__eval__pb2.BarPos.SerializeToString,
         response_deserializer=tick__eval__pb2.OrderResponse.FromString,
         )
+    self.StopServer = channel.unary_unary(
+        '/tickeval.TickEval/StopServer',
+        request_serializer=tick__eval__pb2.ServerDet.SerializeToString,
+        response_deserializer=tick__eval__pb2.StopResponse.FromString,
+        )
 
 
 class TickEvalServicer(object):
@@ -35,6 +40,13 @@ class TickEvalServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def StopServer(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_TickEvalServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -42,6 +54,11 @@ def add_TickEvalServicer_to_server(servicer, server):
           servicer.EvalSingle,
           request_deserializer=tick__eval__pb2.BarPos.FromString,
           response_serializer=tick__eval__pb2.OrderResponse.SerializeToString,
+      ),
+      'StopServer': grpc.unary_unary_rpc_method_handler(
+          servicer.StopServer,
+          request_deserializer=tick__eval__pb2.ServerDet.FromString,
+          response_serializer=tick__eval__pb2.StopResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

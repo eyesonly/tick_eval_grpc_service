@@ -15,7 +15,9 @@ service TickEval {
   // Evaluates a single tradestation tick (or bar)
   // and returns an order type if position needs to be adjusted
   rpc EvalSingle(BarPos) returns (OrderResponse) {}
+  rpc StopServer(ServerDet) returns (StopResponse) {}
 }
+
 
 /// Fields that TradeStation sends representing a bar and ALSO details of the current position
 message BarPos {
@@ -31,7 +33,15 @@ message BarPos {
   string extraField = 10;
 }
 
+message ServerDet {
+  string port = 1;
+}
+
 /// OrderType is the server response - a string with the order type to place
 message OrderResponse {
   string OrderType = 1;
+}
+
+message StopResponse {
+  string responseBack = 1;
 }

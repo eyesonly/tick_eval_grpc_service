@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='tickeval',
   syntax='proto3',
   serialized_options=_b('\n\031io.grpc.examples.tickevalB\rTickEvalProtoP\001\242\002\003TEV'),
-  serialized_pb=_b('\n\x0ftick_eval.proto\x12\x08tickeval\"\xbe\x01\n\x06\x42\x61rPos\x12\x0e\n\x06lastDT\x18\x01 \x01(\x01\x12\x10\n\x08lastOpen\x18\x02 \x01(\x01\x12\x10\n\x08lastHigh\x18\x03 \x01(\x01\x12\x0f\n\x07lastLow\x18\x04 \x01(\x01\x12\x11\n\tlastClose\x18\x05 \x01(\x01\x12\x12\n\nlastVolume\x18\x06 \x01(\x01\x12\x0f\n\x07posSize\x18\x07 \x01(\x11\x12\x12\n\nentryPrice\x18\x08 \x01(\x01\x12\x0f\n\x07openPnL\x18\t \x01(\x01\x12\x12\n\nextraField\x18\n \x01(\t\"\"\n\rOrderResponse\x12\x11\n\tOrderType\x18\x01 \x01(\t2E\n\x08TickEval\x12\x39\n\nEvalSingle\x12\x10.tickeval.BarPos\x1a\x17.tickeval.OrderResponse\"\x00\x42\x32\n\x19io.grpc.examples.tickevalB\rTickEvalProtoP\x01\xa2\x02\x03TEVb\x06proto3')
+  serialized_pb=_b('\n\x0ftick_eval.proto\x12\x08tickeval\"\xbe\x01\n\x06\x42\x61rPos\x12\x0e\n\x06lastDT\x18\x01 \x01(\x01\x12\x10\n\x08lastOpen\x18\x02 \x01(\x01\x12\x10\n\x08lastHigh\x18\x03 \x01(\x01\x12\x0f\n\x07lastLow\x18\x04 \x01(\x01\x12\x11\n\tlastClose\x18\x05 \x01(\x01\x12\x12\n\nlastVolume\x18\x06 \x01(\x01\x12\x0f\n\x07posSize\x18\x07 \x01(\x11\x12\x12\n\nentryPrice\x18\x08 \x01(\x01\x12\x0f\n\x07openPnL\x18\t \x01(\x01\x12\x12\n\nextraField\x18\n \x01(\t\"\x19\n\tServerDet\x12\x0c\n\x04port\x18\x01 \x01(\t\"\"\n\rOrderResponse\x12\x11\n\tOrderType\x18\x01 \x01(\t\"$\n\x0cStopResponse\x12\x14\n\x0cresponseBack\x18\x01 \x01(\t2\x82\x01\n\x08TickEval\x12\x39\n\nEvalSingle\x12\x10.tickeval.BarPos\x1a\x17.tickeval.OrderResponse\"\x00\x12;\n\nStopServer\x12\x13.tickeval.ServerDet\x1a\x16.tickeval.StopResponse\"\x00\x42\x32\n\x19io.grpc.examples.tickevalB\rTickEvalProtoP\x01\xa2\x02\x03TEVb\x06proto3')
 )
 
 
@@ -119,6 +119,37 @@ _BARPOS = _descriptor.Descriptor(
 )
 
 
+_SERVERDET = _descriptor.Descriptor(
+  name='ServerDet',
+  full_name='tickeval.ServerDet',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='port', full_name='tickeval.ServerDet.port', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=222,
+  serialized_end=247,
+)
+
+
 _ORDERRESPONSE = _descriptor.Descriptor(
   name='OrderResponse',
   full_name='tickeval.OrderResponse',
@@ -145,12 +176,45 @@ _ORDERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=222,
-  serialized_end=256,
+  serialized_start=249,
+  serialized_end=283,
+)
+
+
+_STOPRESPONSE = _descriptor.Descriptor(
+  name='StopResponse',
+  full_name='tickeval.StopResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='responseBack', full_name='tickeval.StopResponse.responseBack', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=285,
+  serialized_end=321,
 )
 
 DESCRIPTOR.message_types_by_name['BarPos'] = _BARPOS
+DESCRIPTOR.message_types_by_name['ServerDet'] = _SERVERDET
 DESCRIPTOR.message_types_by_name['OrderResponse'] = _ORDERRESPONSE
+DESCRIPTOR.message_types_by_name['StopResponse'] = _STOPRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 BarPos = _reflection.GeneratedProtocolMessageType('BarPos', (_message.Message,), dict(
@@ -160,12 +224,26 @@ BarPos = _reflection.GeneratedProtocolMessageType('BarPos', (_message.Message,),
   ))
 _sym_db.RegisterMessage(BarPos)
 
+ServerDet = _reflection.GeneratedProtocolMessageType('ServerDet', (_message.Message,), dict(
+  DESCRIPTOR = _SERVERDET,
+  __module__ = 'tick_eval_pb2'
+  # @@protoc_insertion_point(class_scope:tickeval.ServerDet)
+  ))
+_sym_db.RegisterMessage(ServerDet)
+
 OrderResponse = _reflection.GeneratedProtocolMessageType('OrderResponse', (_message.Message,), dict(
   DESCRIPTOR = _ORDERRESPONSE,
   __module__ = 'tick_eval_pb2'
   # @@protoc_insertion_point(class_scope:tickeval.OrderResponse)
   ))
 _sym_db.RegisterMessage(OrderResponse)
+
+StopResponse = _reflection.GeneratedProtocolMessageType('StopResponse', (_message.Message,), dict(
+  DESCRIPTOR = _STOPRESPONSE,
+  __module__ = 'tick_eval_pb2'
+  # @@protoc_insertion_point(class_scope:tickeval.StopResponse)
+  ))
+_sym_db.RegisterMessage(StopResponse)
 
 
 DESCRIPTOR._options = None
@@ -176,8 +254,8 @@ _TICKEVAL = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=258,
-  serialized_end=327,
+  serialized_start=324,
+  serialized_end=454,
   methods=[
   _descriptor.MethodDescriptor(
     name='EvalSingle',
@@ -186,6 +264,15 @@ _TICKEVAL = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_BARPOS,
     output_type=_ORDERRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='StopServer',
+    full_name='tickeval.TickEval.StopServer',
+    index=1,
+    containing_service=None,
+    input_type=_SERVERDET,
+    output_type=_STOPRESPONSE,
     serialized_options=None,
   ),
 ])
