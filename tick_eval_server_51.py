@@ -52,7 +52,13 @@ class TickEval(tick_eval_pb2_grpc.TickEvalServicer):
         
         return tick_eval_pb2.OrderResponse(OrderType=message_back)
 
+    def StopServer(self, request, context):
+        print(str(request))
+        response_back = "...in stop server routine..."
+        print(response_back)
+        return tick_eval_pb2.StopResponse(responseBack=response_back)
 
+    
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     tick_eval_pb2_grpc.add_TickEvalServicer_to_server(TickEval(), server)
@@ -60,7 +66,8 @@ def serve():
     server.start()
     try:
         while True:
-            time.sleep(_ONE_DAY_IN_SECONDS)
+            time.sleep(10)
+            # time.sleep(_ONE_DAY_IN_SECONDS)
     except KeyboardInterrupt:
         server.stop(0)
 
